@@ -5,12 +5,12 @@
   "scripts": {
     "dev": "webpack serve --open --mode=development",
     "build:dev": "webpack --mode=development",
-    "build:prod": "webpack --mode=production",
+    "build:prod": "webpack --mode=production && npm run build:ts && npm run build:sass && npm run copy:html",
     "pages-deploy": "gh-pages -d dist",
-    "build:sass": "sass src/styles:dist/styles",
+    "build:sass": "sass src/styles.sass dist/styles.css",
     "build:ts": "tsc",
-    "build:sass": "sass src:dist",
-    "watch:sass": "sass --watch src:dist"
+    "watch:sass": "sass --watch src/styles:sass --no-source-map --style=compressed",
+    "copy:html": "cp src/index.html dist/index.html"
   },
   "repository": {
     "type": "git",
@@ -24,9 +24,14 @@
   "homepage": "https://github.com/teaaraki/webpack_test#readme",
   "description": "",
   "devDependencies": {
+    "css-loader": "^7.1.2",
     "gh-pages": "^6.3.0",
     "html-webpack-plugin": "^5.6.3",
+    "mini-css-extract-plugin": "^2.9.2",
     "sass": "^1.86.3",
+    "sass-loader": "^16.0.5",
+    "style-loader": "^4.0.0",
+    "ts-loader": "^9.5.2",
     "typescript": "^5.8.3",
     "webpack": "^5.99.6",
     "webpack-cli": "^6.0.1",
