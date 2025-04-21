@@ -6,7 +6,11 @@
     "dev": "webpack serve --open --mode=development",
     "build:dev": "webpack --mode=development",
     "build:prod": "webpack --mode=production",
-    "pages-deploy": "gh-pages -d dist"
+    "pages-deploy": "gh-pages -d dist",
+    "build:sass": "sass src/styles:dist/styles",
+    "build:ts": "tsc",
+    "build:sass": "sass src:dist",
+    "watch:sass": "sass --watch src:dist"
   },
   "repository": {
     "type": "git",
@@ -22,6 +26,7 @@
   "devDependencies": {
     "gh-pages": "^6.3.0",
     "html-webpack-plugin": "^5.6.3",
+    "sass": "^1.86.3",
     "typescript": "^5.8.3",
     "webpack": "^5.99.6",
     "webpack-cli": "^6.0.1",
